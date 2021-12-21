@@ -27,3 +27,7 @@ node {
     }
     
 }
+
+# copy from #1 to #29 and paste this on the jenkins pipeline 
+# DO NOT COPY THIS PART AS PART OF THE PIPELINE SCRIPT 
+https://github.com/joshking1/k8s-jenkins-aws
