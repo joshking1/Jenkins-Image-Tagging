@@ -17,10 +17,11 @@ node {
         sh 'docker image list'
         sh 'docker tag king-httpd josh1991/king-httpd:king-httpd'
     }
-
-    withCredentials([string(credentialsId: 'DOCKER_HUB_PASSWORD', variable: 'PASSWORD')]) {
-        sh 'docker login -u josh1991 -p $PASSWORD'
-    }
+    
+    stage("Docker Login"){
+        withCredentials([string(credentialsId: 'DOCKER_HUB_PASSWORD', variable: 'PASSWORD')]) {
+            sh 'docker login -u josh1991 -p $PASSWORD'
+    } 
     
     stage("Push Image to Docker Hub"){
         sh 'docker push josh1991/king-httpd:king-httpd'
