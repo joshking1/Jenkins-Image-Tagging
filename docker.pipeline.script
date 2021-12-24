@@ -18,8 +18,7 @@ node {
         sh 'docker tag king-httpd josh1991/king-httpd:king-httpd'
     }
     
-    stage("Docker Login"){
-        withCredentials([string(credentialsId: 'DOCKER_HUB_PASSWORD', variable: 'PASSWORD')]) {
+    withCredentials([string(credentialsId: 'DOCKER_HUB_PASSWORD', variable: 'PASSWORD')]) {
             sh 'docker login -u josh1991 -p $PASSWORD'
     } 
     
